@@ -7,7 +7,6 @@ function buildTable(data){
     tbody.html("");
 
 
-
     data.forEach((dataRow) => {
 
         let row = tbody.append("tr");
@@ -22,7 +21,7 @@ function buildTable(data){
         );
     });
 
-};
+}
 
 function handleClick(){
     let date = d3.select("#datetime").property("value");
@@ -30,15 +29,17 @@ function handleClick(){
 
     if (date){
         filteredData = filteredData.filter(row => row.datetime === date);
-    };
+    }
 
     buildTable(filteredData);
 
-    d3.selectAll('#filter-btn').on('click', handleClick);
-
-    buildTable(tableData);
-
 }
+
+d3.selectAll('#filter-btn').on('click', handleClick);
+
+buildTable(tableData);
+
+
 
 
 
